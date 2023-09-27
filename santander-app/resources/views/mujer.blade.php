@@ -24,12 +24,12 @@
         <div class="alert alert-danger">{{ session('incorrecto') }}</div>
     @endif 
 
- <script>
+     <script>
       var res=function(){
         var not=confirm("¿Estas seguro de eliminar esta mujer");
         return not;
-      
-    </script>
+      }
+    </script> 
 
     <!-- Modal Registar Mujer-->
     <div class="modal fade" id="modalInsertar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
