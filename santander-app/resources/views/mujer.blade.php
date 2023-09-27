@@ -15,21 +15,21 @@
 <body>
     <h1 id="ha" class="text-center">Bienvenida Mujer</h1>
 
-    {{-- @if (session('correcto'))
+    @if (session('correcto'))
         <div class="alert alert-info">{{ session('correcto') }}</div>
     @endif
 
 
     @if (session('incorrecto'))
         <div class="alert alert-danger">{{ session('incorrecto') }}</div>
-    @endif --}}
+    @endif 
 
-    {{-- <script>
+ <script>
       var res=function(){
         var not=confirm("¿Estas seguro de eliminar esta mujer");
         return not;
-      }
-    </script> --}}
+      
+    </script>
 
     <!-- Modal Registar Mujer-->
     <div class="modal fade" id="modalInsertar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -41,71 +41,75 @@
                 </div>
                 <div class="modal-body">
                     <!-- Formulario para ingresar los datos de la mujer -->
-          <form action="{{ route('mujer.create') }}" method="post">
-            @csrf
+                    <form action="{{ route('mujer.create') }}" method="post">
+                        @csrf
 
-        <!-- ID -->
-        <div class="form-group">
-            <input type="hidden" class="form-control" id="idMujer" name="idMujer" required>
-        </div>
-        
-        <!-- Tipo de Documento -->
-        <div class="form-group">
-            <label for="tipoDocMujer">Tipo de Documento</label>
-            <input type="text" class="form-control" id="tipoDocMujer" name="tipoDocMujer" value="Cedula">
-        </div>
-        
-        <!-- Documento -->
-        <div class="form-group">
-            <label for="numeroDocMujer">Documento</label>
-            <input type="text" class="form-control" id="numeroDocMujer" name="numeroDocMujer" required>
-        </div>
+                        <!-- ID -->
+                        <div class="form-group">
+                            <input type="hidden" class="form-control" id="idMujer" name="idMujer" required>
+                        </div>
 
-        <!-- Nombres -->
-        <div class="form-group">
-            <label for="nombreMujer">Nombre</label>
-            <input type="text" class="form-control" id="nombreMujer" name="nombreMujer" required>
-        </div>
+                        <!-- Tipo de Documento -->
+                        <div class="form-group">
+                            <label for="tipoDocMujer">Tipo de Documento</label>
+                            <input type="text" class="form-control" id="tipoDocMujer" name="tipoDocMujer"
+                                value="Cedula">
+                        </div>
 
-        <!-- Apellidos -->
-        <div class="form-group">
-            <label for="apellidoMujer">Apellido</label>
-            <input type="text" class="form-control" id="apellidoMujer" name="apellidoMujer" required>
-        </div>
+                        <!-- Documento -->
+                        <div class="form-group">
+                            <label for="numeroDocMujer">Documento</label>
+                            <input type="text" class="form-control" id="numeroDocMujer" name="numeroDocMujer"
+                                required>
+                        </div>
 
-        <!-- Teléfono -->
-        <div class="form-group">
-            <label for="telefonoMujer">Teléfono</label>
-            <input type="text" class="form-control" id="telefonoMujer" name="telefonoMujer" required>
-        </div>
-        
-        <!-- Correo Electrónico -->
-        <div class="form-group">
-            <label for="correoMujer">Correo Electrónico</label>
-            <input type="email" class="form-control" id="correoMujer" name="correoMujer" required>
-        </div>
+                        <!-- Nombres -->
+                        <div class="form-group">
+                            <label for="nombreMujer">Nombre</label>
+                            <input type="text" class="form-control" id="nombreMujer" name="nombreMujer" required>
+                        </div>
 
-        <!-- Ciudad -->
-        <div class="form-group">
-            <label for="ciudadMujer">Ciudad</label>
-            <input type="text" class="form-control" id="ciudadMujer" name="ciudadMujer" required>
-        </div>
+                        <!-- Apellidos -->
+                        <div class="form-group">
+                            <label for="apellidoMujer">Apellido</label>
+                            <input type="text" class="form-control" id="apellidoMujer" name="apellidoMujer" required>
+                        </div>
 
-        <!-- Dirección -->
-        <div class="form-group">
-            <label for="direccionMujer">Dirección</label>
-            <input type="text" class="form-control" id="direccionMujer" name="direccionMujer" required>
-        </div>
+                        <!-- Teléfono -->
+                        <div class="form-group">
+                            <label for="telefonoMujer">Teléfono</label>
+                            <input type="text" class="form-control" id="telefonoMujer" name="telefonoMujer" required>
+                        </div>
 
-        <!-- Ocupación -->
-        <div class="form-group">
-            <label for="ocupacionMujer">Ocupación</label>
-            <input type="text" class="form-control" id="ocupacionMujer" name="ocupacionMujer" required>
-        </div>
+                        <!-- Correo Electrónico -->
+                        <div class="form-group">
+                            <label for="correoMujer">Correo Electrónico</label>
+                            <input type="email" class="form-control" id="correoMujer" name="correoMujer" required>
+                        </div>
 
-        <!-- Botón de Enviar -->
-        <button type="submit" class="btn btn-primary">Agregar</button>
-    </form>
+                        <!-- Ciudad -->
+                        <div class="form-group">
+                            <label for="ciudadMujer">Ciudad</label>
+                            <input type="text" class="form-control" id="ciudadMujer" name="ciudadMujer" required>
+                        </div>
+
+                        <!-- Dirección -->
+                        <div class="form-group">
+                            <label for="direccionMujer">Dirección</label>
+                            <input type="text" class="form-control" id="direccionMujer" name="direccionMujer"
+                                required>
+                        </div>
+
+                        <!-- Ocupación -->
+                        <div class="form-group">
+                            <label for="ocupacionMujer">Ocupación</label>
+                            <input type="text" class="form-control" id="ocupacionMujer" name="ocupacionMujer"
+                                required>
+                        </div>
+
+                        <!-- Botón de Enviar -->
+                        <button type="submit" class="btn btn-primary">Agregar</button>
+                    </form>
 
                 </div>
             </div>
@@ -150,56 +154,115 @@
                         <td>{{ $item->ocupacionMujer }}</td>
 
                         <td>
-                            <a href="" class="btn btn-primary btn-sm" data-bs-toggle="modal"
-                                data-bs-target="#modalModificar{{ $item->idMujer }}"><i class="fa-solid fa-user-pen"></i></a>
-                            {{-- <a href="{{route('mujer.delete', $item->idMujer)}}" onclick="return res()" class="btn btn-danger btn-sm"><i class="fa-solid fa-user-minus"></i></a> --}}
+                            <a href="" class="btn btn-primary btn-sm"  data-bs-toggle="modal" data-bs-target="#modalModificar3{{ $item->idMujer }}">
+                                <i class="fa-solid fa-user-pen"></i></a>
+                                    
+                            <a href="{{ route('mujer.delete', $item->idMujer) }}" onclick="return res()"
+                                class="btn btn-danger btn-sm"><i class="fa-solid fa-user-minus"></i></a>
                         </td>
 
 
-{{-- 
-                        <!-- Modal Modificar -->
-                        <div class="modal fade" id="modalModificar{{ $item->idAprendiz }}" tabindex="-1" aria-labelledby="exampleModalLabel"
-                            aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Modificar Aprendiz</h1>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <form action="{{ route('aprendiz.update')}}" method="POST">
-                                            @csrf
-
-                                            <div class="mb-0">
-                                                <input type="hidden" class="form-control" id="id"
-                                                    aria-describedby="emailHelp" name="id" value="{{ $item->idAprendiz }}">
-                                            </div>
-
-                                            <div class="mb-3">
-                                                <label for="nombre" class="form-label">Nombre Aprendiz</label>
-                                                <input type="text" class="form-control" id="nombre"
-                                                    aria-describedby="emailHelp" name="nombre" value="{{ $item->nombre }}">
-                                            </div>
-                                            <div class="mb-3">
-                                                <label for="apellido" class="form-label">Apellido Aprendiz</label>
-                                                <input type="text" name="apellido" class="form-control"
-                                                    id="apellido" value="{{ $item->apellido }}">
-                                            </div>
 
 
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary"
-                                                    data-bs-dismiss="modal">Cerrar</button>
-                                                <button type="submit" class="btn btn-primary">Modificar</button>
-                                            </div>
-                                        </form>
 
-                                    </div>
-                                </div>
-                            </div>
-                        </div> --}}
 
+  <!-- Modal Modificar -->
+  <div class="modal fade" id="modalModificar3{{ $item->idMujer }}" tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Modificar Mujer</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="{{ route('mujer.update') }}" method="post">
+                    @csrf
+
+                    <!-- ID -->
+                    <div class="form-group">
+                        <input type="hidden" class="form-control" id="idMujer"
+                            name="idMujer" required>
+                    </div>
+
+                    <!-- Tipo de Documento -->
+                    <div class="form-group">
+                        <label for="tipoDocMujer">Tipo de Documento</label>
+                        <input type="text" class="form-control" id="tipoDocMujer"
+                            name="tipoDocMujer" value={{ $item->tipoDocMujer }} >
+                    </div>
+
+                    <!-- Documento -->
+                    <div class="form-group">
+                        <label for="numeroDocMujer">Documento</label>
+                        <input type="text" class="form-control" id="numeroDocMujer"
+                            name="numeroDocMujer" value={{ $item->numeroDocMujer }}>
+                    </div>
+
+                    <!-- Nombres -->
+                    <div class="form-group">
+                        <label for="nombreMujer">Nombre</label>
+                        <input type="text" class="form-control" id="nombreMujer"
+                            name="nombreMujer" value={{ $item->nombreMujer }} required>
+                    </div>
+
+                    <!-- Apellidos -->
+                    <div class="form-group">
+                        <label for="apellidoMujer">Apellido</label>
+                        <input type="text" class="form-control" id="apellidoMujer"
+                            name="apellidoMujer" value={{ $item->apellidoMujer }} required>
+                    </div>
+
+                    <!-- Teléfono -->
+                    <div class="form-group">
+                        <label for="telefonoMujer">Teléfono</label>
+                        <input type="text" class="form-control" id="telefonoMujer"
+                            name="telefonoMujer" value={{ $item->telefonoMujer }} required>
+                    </div>
+
+                    <!-- Correo Electrónico -->
+                    <div class="form-group">
+                        <label for="correoMujer">Correo Electrónico</label>
+                        <input type="email" class="form-control" id="correoMujer"
+                            name="correoMujer" value={{ $item->correoMujer }} required>
+                    </div>
+
+                    <!-- Ciudad -->
+                    <div class="form-group">
+                        <label for="ciudadMujer">Ciudad</label>
+                        <input type="text" class="form-control" id="ciudadMujer"
+                            name="ciudadMujer" value={{ $item->ciudadMujer }} required>
+                    </div>
+
+                    <!-- Dirección -->
+                    <div class="form-group">
+                        <label for="direccionMujer">Dirección</label>
+                        <input type="text" class="form-control" id="direccionMujer"
+                            name="direccionMujer" value={{ $item->direccionMujer }} required>
+                    </div>
+
+                    <!-- Ocupación -->
+                    <div class="form-group">
+                        <label for="ocupacionMujer">Ocupación</label>
+                        <input type="text" class="form-control" id="ocupacionMujer"
+                            name="ocupacionMujer" value={{ $item->ocupacionMujer }} required>
+                    </div>
+
+                    <!-- Botón de Enviar -->
+                    <button type="submit" class="btn btn-primary">modificar mujer</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+                                            
+                    
                     </tr>
                 @endforeach
 

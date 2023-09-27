@@ -35,4 +35,13 @@ Route::get('mujer',[MujerController::class,"index"])->name('mujer.index');
 
 Route::post('ingresarMujer',[MujerController::class,"create"])->name('mujer.create');
 
+
+//ruta para modificar una mujer
+Route::post('modificarMujer',[MujerController::class,'update'])->name('mujer.update');
+
+//ruta para eliminar una mujer
+Route::get('deleteMujer-{id}', [MujerController::class, 'delete'])->name('mujer.delete');
+
+
+
 require __DIR__.'/auth.php';
