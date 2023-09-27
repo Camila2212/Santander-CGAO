@@ -16,7 +16,7 @@ class MujerController extends Controller
         {
             $sql=DB::insert("insert into mujercuidadora(idMujer, tipoDocMujer, numeroDocMujer, nombreMujer, apellidoMujer,
              telefonoMujer, correoMujer, ciudadMujer, direccionMujer, ocupacionMujer)values(Null,?,?,?,?,?,?,?,?,?)",[
-                $request->idMujer,
+                
                 $request->tipoDocMujer,
                 $request->numeroDocMujer,
                 $request->nombreMujer,

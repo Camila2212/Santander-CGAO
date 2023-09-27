@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CiudadController;
 use App\Http\Controllers\MujerController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -32,15 +33,27 @@ Route::middleware('auth')->group(function () {
 
 //Ruta para acceder a la pagina mujer
 Route::get('mujer',[MujerController::class,"index"])->name('mujer.index');
-
+//ruta para ingresar una mujer
 Route::post('ingresarMujer',[MujerController::class,"create"])->name('mujer.create');
-
 
 //ruta para modificar una mujer
 Route::post('modificarMujer',[MujerController::class,'update'])->name('mujer.update');
 
 //ruta para eliminar una mujer
 Route::get('deleteMujer-{id}', [MujerController::class, 'delete'])->name('mujer.delete');
+
+
+
+//Ruta para acceder a la pagina ciudad
+Route::get('ciudad',[CiudadController::class,"index"])->name('ciudad.index');
+//ruta para ingresar una mujer
+Route::post('ingresarCiudad',[CiudadController::class,"create"])->name('ciudad.create');
+
+//ruta para modificar una mujer
+Route::post('modificarCiudad',[CiudadController::class,'update'])->name('ciudad.update');
+
+//ruta para eliminar una mujer
+Route::get('deleteCiudad-{id}', [CiudadController::class, 'delete'])->name('ciudad.delete');
 
 
 
