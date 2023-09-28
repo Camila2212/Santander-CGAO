@@ -408,8 +408,13 @@
         @endauth
     </div>
     @endif
+    <div class="display-block">
     <a href="{{ route('mujer.index') }}">mujer</a> <br>
-    <a href="{{ route('ciudad.index') }}">ciudad</a>
+    
+    <a href="{{ route('ciudad.index') }}">ciudad</a><br>
+    <a href="{{ route('tservicio.index') }}">tipos de servicio</a><br>
+
+</div>
 
 
 

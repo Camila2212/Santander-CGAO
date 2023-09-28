@@ -3,6 +3,7 @@
 use App\Http\Controllers\CiudadController;
 use App\Http\Controllers\MujerController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TServicioController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -46,15 +47,27 @@ Route::get('deleteMujer-{id}', [MujerController::class, 'delete'])->name('mujer.
 
 //Ruta para acceder a la pagina ciudad
 Route::get('ciudad',[CiudadController::class,"index"])->name('ciudad.index');
-//ruta para ingresar una mujer
+//ruta para ingresar una ciudad
 Route::post('ingresarCiudad',[CiudadController::class,"create"])->name('ciudad.create');
 
-//ruta para modificar una mujer
+//ruta para modificar una ciudad
 Route::post('modificarCiudad',[CiudadController::class,'update'])->name('ciudad.update');
 
-//ruta para eliminar una mujer
+//ruta para eliminar una ciudad
 Route::get('deleteCiudad-{id}', [CiudadController::class, 'delete'])->name('ciudad.delete');
 
+
+
+//Ruta para acceder a tipos de servicios
+Route::get('tipoServicio',[TServicioController::class,"index"])->name('tservicio.index');
+//ruta para ingresar un tipo de servicio
+Route::post('ingresartipoServicio',[TServicioController::class,"create"])->name('tservicio.create');
+
+//ruta para modificar tipo de servicio
+Route::post('modificartipoServicio',[TServicioController::class,'update'])->name('tservicio.update');
+
+//ruta para eliminar tipo de servicio
+Route::get('deletetipoServicio-{id}', [TServicioController::class, 'delete'])->name('tservicio.delete');
 
 
 require __DIR__.'/auth.php';
