@@ -28,7 +28,7 @@ class TServicioController extends Controller
         if ($sql==true) {
             return back()->with("correcto","El tipo servicio ha sido registrado correctamente");
         } else {
-            return back()->with("incorrecto","Eror el tipo servicio no ha sido registrado");
+            return back()->with("incorrecto","Error el tipo servicio no ha sido registrado");
         }
         
     }
@@ -68,7 +68,7 @@ class TServicioController extends Controller
     if ($sql==true) {
         return back()->with("correcto","El tipo servicios ha sido eliminado correctamente");
     } else {
-        return back()->with("incorrecto","Eror el tipo servicio no ha sido eliminado");
+        return back()->with("incorrecto","Error el tipo servicio no ha sido eliminado");
     }
     
     }

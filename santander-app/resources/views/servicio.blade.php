@@ -25,10 +25,10 @@
     @endif
 
     <script>
-      var res=function(){
-        var not=confirm("¿Estas seguro de eliminar este servicio");
-        return not;
-      }
+        var res = function() {
+            var not = confirm("¿Estas seguro de eliminar este servicio");
+            return not;
+        }
     </script>
 
     <!-- Modal Registar Servicio-->
@@ -53,8 +53,8 @@
                         </div>
                         <div class="mb-3">
                             <label for="descripcionServicio" class="form-label">Descripcion Servicio</label>
-                            <input type="text" class="form-control" id="descripcionServicio" aria-describedby="emailHelp"
-                                name="descripcionServicio">
+                            <input type="text" class="form-control" id="descripcionServicio"
+                                aria-describedby="emailHelp" name="descripcionServicio">
                         </div>
                         <div class="mb-3">
                             <label for="idTipoServicio" class="form-label">Id Tipo Servicio</label>
@@ -75,7 +75,8 @@
     </div>
 
     <div class="p-5 table-responsive">
-        <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modalInsertar">Registrar Servicio</button>
+        <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modalInsertar">Registrar
+            Servicio</button>
 
 
         <table class="table table-hover table-striped table-bordered">
@@ -99,15 +100,17 @@
 
                         <td>
                             <a href="" class="btn btn-primary btn-sm" data-bs-toggle="modal"
-                                data-bs-target="#modalModificar{{ $item->idServicio }}"><i class="fa-solid fa-user-pen"></i></a>
-                            <a href="{{route('servicio.delete', $item->idServicio)}}" onclick="return res()" class="btn btn-danger btn-sm"><i class="fa-solid fa-user-minus"></i></a>
+                                data-bs-target="#modalModificar{{ $item->idServicio }}"><i
+                                    class="fa-solid fa-user-pen"></i></a>
+                            <a href="{{ route('servicio.delete', $item->idServicio) }}" onclick="return res()"
+                                class="btn btn-danger btn-sm"><i class="fa-solid fa-user-minus"></i></a>
                         </td>
 
 
 
                         <!-- Modal Modificar Servicio-->
-                        <div class="modal fade" id="modalModificar{{ $item->idServicio }}" tabindex="-1" aria-labelledby="exampleModalLabel"
-                            aria-hidden="true">
+                        <div class="modal fade" id="modalModificar{{ $item->idServicio }}" tabindex="-1"
+                            aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -116,30 +119,36 @@
                                             aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        <form action="{{ route('servicio.update')}}" method="POST">
+                                        <form action="{{ route('servicio.update') }}" method="POST">
                                             @csrf
 
                                             <div class="mb-0">
                                                 <input type="hidden" class="form-control" id="idServicio"
-                                                    aria-describedby="emailHelp" name="idServicio" value="{{ $item->idServicio }}">
+                                                    aria-describedby="emailHelp" name="idServicio"
+                                                    value="{{ $item->idServicio }}">
                                             </div>
 
                                             <div class="mb-3">
                                                 <label for="nombre" class="form-label">Nombre Servicio</label>
                                                 <input type="text" class="form-control" id="nombre"
-                                                    aria-describedby="emailHelp" name="nombre" value="{{ $item->nombreServicio }}">
+                                                    aria-describedby="emailHelp" name="nombre"
+                                                    value="{{ $item->nombreServicio }}">
                                             </div>
                                             <div class="mb-3">
-                                                <label for="descripcionServicio" class="form-label">Descripcion Servicio</label>
-                                                <input type="text" class="form-control" id="descripcionServicio" aria-describedby="emailHelp"
-                                                    name="descripcionServicio" value="{{ $item->descripcionServicio }}">
+                                                <label for="descripcionServicio" class="form-label">Descripcion
+                                                    Servicio</label>
+                                                <input type="text" class="form-control" id="descripcionServicio"
+                                                    aria-describedby="emailHelp" name="descripcionServicio"
+                                                    value="{{ $item->descripcionServicio }}">
                                             </div>
                                             <div class="mb-3">
-                                                <label for="idTipoServicio" class="form-label">Id Tipo Servicio</label>
-                                                <input type="text" class="form-control" id="idTipoServicio" aria-describedby="emailHelp"
-                                                    name="idTipoServicio" value="{{ $item->idTipoServicio }}">
+                                                <label for="idTipoServicio" class="form-label">Id Tipo
+                                                    Servicio</label>
+                                                <input type="text" class="form-control" id="idTipoServicio"
+                                                    aria-describedby="emailHelp" name="idTipoServicio"
+                                                    value="{{ $item->idTipoServicio }}">
                                             </div>
-                     
+
 
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
@@ -169,4 +178,5 @@
 
 
 </body>
+
 </html>

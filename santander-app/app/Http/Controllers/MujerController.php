@@ -37,7 +37,7 @@ class MujerController extends Controller
         if ($sql==true) {
             return back()->with("correcto","La mujer ha sido registrado correctamente");
         } else {
-            return back()->with("incorrecto","Eror la mujer no ha sido registrada");
+            return back()->with("incorrecto","Error la mujer no ha sido registrada");
         }
 
         
@@ -89,7 +89,7 @@ class MujerController extends Controller
     if ($sql==true) {
         return back()->with("correcto","La mujer ha sido eliminado correctamente");
     } else {
-        return back()->with("incorrecto","Eror la mujer no ha sido eliminado");
+        return back()->with("incorrecto","Error la mujer no ha sido eliminado");
     }
     
     }

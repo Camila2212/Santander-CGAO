@@ -27,7 +27,7 @@ class CiudadController extends Controller
         if ($sql==true) {
             return back()->with("correcto","La ciudad ha sido registrada correctamente");
         } else {
-            return back()->with("incorrecto","Eror la ciudad no ha sido registrada");
+            return back()->with("incorrecto","Error la ciudad no ha sido registrada");
         }
         
     }
@@ -67,7 +67,7 @@ class CiudadController extends Controller
     if ($sql==true) {
         return back()->with("correcto","La ciudad ha sido eliminada correctamente");
     } else {
-        return back()->with("incorrecto","Eror la ciudad no ha sido eliminada");
+        return back()->with("incorrecto","Error la ciudad no ha sido eliminada");
     }
     
     }

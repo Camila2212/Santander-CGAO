@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<link rel="stylesheet" href="css/css/bootstrap.css">
+<link rel="stylesheet" href="css/app.css">
 
 <head>
     <meta charset="utf-8">
@@ -388,35 +390,63 @@
             font-family: 'Nunito', sans-serif;
         }
     </style>
+    <header data-bs-theme="dark">
+        <nav class="navbar navbar-expand-md navbar-blue fixed-top bg-dark minav">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="#">Carousel</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+              <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                </li>
+              </ul>
+              
+              
+              @if (Route::has('login'))
+              <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+                  @auth
+                      <a href="{{ url('/dashboard') }}"
+                          class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
+                  @else
+                      <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+  
+                      @if (Route::has('register'))
+                          <a href="{{ route('register') }}"
+                              class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
+                      @endif
+                  @endauth
+              </div>
+          @endif
+            </div>
+          </div>
+        </nav>
+      </header>
 </head>
 
-<body class="antialiased">
-    <div
-    class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
-    @if (Route::has('login'))
-    <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-        @auth
-        <a href="{{ url('/dashboard') }}"
-        class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
-        @else
-        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
-        
-        @if (Route::has('register'))
-        <a href="{{ route('register') }}"
-        class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
-        @endif
-        @endauth
+<body class="antialiased display text-center" style="margin-top: 70pt ">
+    <div>
+        <h1 style="color: magenta"> Bienvenida Mujer Cuidadora </h1>
     </div>
-    @endif
-    <div class="display-block">
-    <a href="{{ route('mujer.index') }}">mujer</a> <br>
-    
-    <a href="{{ route('ciudad.index') }}">ciudad</a><br>
-    <a href="{{ route('tservicio.index') }}">tipos de servicio</a><br>
-    <a href="{{ route('servicio.index') }}">servicio</a><br>
+    <div class="display-block menu midiv text-center m-5">
+        <a href="{{ route('mujer.index') }}">mujer</a> <br>
+
+        <a href="{{ route('ciudad.index') }}">ciudad</a><br>
+        <a href="{{ route('tservicio.index') }}">tipos de servicio</a><br>
+        <a href="{{ route('servicio.index') }}">servicio</a><br>
+        <a href="{{ route('establecimiento.index') }}">establecimiento</a><br>
+        <a href="{{ route('manzana.index') }}">manzana</a><br>
+        <a href="{{ route('propuesta.index') }}">propuesta</a><br>
 
 
-</div>
 
 
 

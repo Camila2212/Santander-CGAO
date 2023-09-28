@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\CiudadController;
+use App\Http\Controllers\DisponibilidadController;
+use App\Http\Controllers\EstablecimientoController;
+use App\Http\Controllers\ManzanaController;
 use App\Http\Controllers\MujerController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServicioController;
@@ -71,6 +74,7 @@ Route::post('modificartipoServicio',[TServicioController::class,'update'])->name
 Route::get('deletetipoServicio-{id}', [TServicioController::class, 'delete'])->name('tservicio.delete');
 
 
+
 //Ruta para acceder a servicios
 Route::get('Servicio',[ServicioController::class,"index"])->name('servicio.index');
 //ruta para ingresar un servicio
@@ -81,6 +85,47 @@ Route::post('modificarServicio',[ServicioController::class,'update'])->name('ser
 
 //ruta para eliminar servicio
 Route::get('deleteServicio-{id}', [ServicioController::class, 'delete'])->name('servicio.delete');
+
+
+
+//Ruta para acceder a establecimiento
+Route::get('establecimiento',[EstablecimientoController::class,"index"])->name('establecimiento.index');
+//ruta para ingresar un establecimiento
+Route::post('ingresarEstablecimiento',[EstablecimientoController::class,"create"])->name('establecimiento.create');
+
+//ruta para modificar establecimiento
+Route::post('modificarEstablecimiento',[EstablecimientoController::class,'update'])->name('establecimiento.update');
+
+//ruta para eliminar establecimiento
+Route::get('deleteEstablecimiento-{id}', [EstablecimientoController::class, 'delete'])->name('establecimiento.delete');
+
+
+
+
+//Ruta para acceder a manzana
+Route::get('manzana',[ManzanaController::class,"index"])->name('manzana.index');
+
+//ruta para ingresar una manzana
+Route::post('ingresarManzana',[ManzanaController::class,"create"])->name('manzana.create');
+
+//ruta para modificar una manzana
+Route::post('modificarManzana',[ManzanaController::class,'update'])->name('manzana.update');
+
+//ruta para eliminar una manzana
+Route::get('deleteManzana-{id}', [ManzanaController::class, 'delete'])->name('manzana.delete');
+
+
+
+//Ruta para acceder a una disponibilidad
+Route::get('propuesta',[DisponibilidadController::class,"index"])->name('propuesta.index');
+//ruta para ingresar una disponibilidad
+Route::post('ingresarPropuesta',[DisponibilidadController::class,"create"])->name('propuesta.create');
+
+//ruta para modificar una disponibilidad
+Route::post('modificarPropuesta',[DisponibilidadController::class,'update'])->name('propuesta.update');
+
+//ruta para eliminar una disponibilidad
+Route::get('deletePropuesta-{id}', [DisponibilidadController::class, 'delete'])->name('propuesta.delete');
 
 
 require __DIR__.'/auth.php';

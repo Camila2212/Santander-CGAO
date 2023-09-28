@@ -25,10 +25,10 @@
     @endif
 
     <script>
-      var res=function(){
-        var not=confirm("¿Estas seguro de eliminar este tipo servicio");
-        return not;
-      }
+        var res = function() {
+            var not = confirm("¿Estas seguro de eliminar este tipo servicio");
+            return not;
+        }
     </script>
 
     <!-- Modal Registar Tipo Servicio-->
@@ -84,15 +84,17 @@
                         <td>{{ $item->nombre }}</td>
                         <td>
                             <a href="" class="btn btn-primary btn-sm" data-bs-toggle="modal"
-                                data-bs-target="#modalModificar{{ $item->idTipoServicio }}"><i class="fa-solid fa-user-pen"></i></a>
-                            <a href="{{route('tservicio.delete', $item->idTipoServicio)}}" onclick="return res()" class="btn btn-danger btn-sm"><i class="fa-solid fa-user-minus"></i></a>
+                                data-bs-target="#modalModificar{{ $item->idTipoServicio }}"><i
+                                    class="fa-solid fa-user-pen"></i></a>
+                            <a href="{{ route('tservicio.delete', $item->idTipoServicio) }}" onclick="return res()"
+                                class="btn btn-danger btn-sm"><i class="fa-solid fa-user-minus"></i></a>
                         </td>
 
 
 
                         <!-- Modal Modificar Tipo Servicio-->
-                        <div class="modal fade" id="modalModificar{{ $item->idTipoServicio }}" tabindex="-1" aria-labelledby="exampleModalLabel"
-                            aria-hidden="true">
+                        <div class="modal fade" id="modalModificar{{ $item->idTipoServicio }}" tabindex="-1"
+                            aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -101,20 +103,22 @@
                                             aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        <form action="{{ route('tservicio.update')}}" method="POST">
+                                        <form action="{{ route('tservicio.update') }}" method="POST">
                                             @csrf
 
                                             <div class="mb-0">
                                                 <input type="hidden" class="form-control" id="idTipoServicio"
-                                                    aria-describedby="emailHelp" name="idTipoServicio" value="{{ $item->idTipoServicio }}">
+                                                    aria-describedby="emailHelp" name="idTipoServicio"
+                                                    value="{{ $item->idTipoServicio }}">
                                             </div>
 
                                             <div class="mb-3">
                                                 <label for="nombre" class="form-label">Nombre Tipo Servicio</label>
                                                 <input type="text" class="form-control" id="nombre"
-                                                    aria-describedby="emailHelp" name="nombre" value="{{ $item->nombre }}">
+                                                    aria-describedby="emailHelp" name="nombre"
+                                                    value="{{ $item->nombre }}">
                                             </div>
-                                              
+
 
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
@@ -144,4 +148,5 @@
 
 
 </body>
+
 </html>

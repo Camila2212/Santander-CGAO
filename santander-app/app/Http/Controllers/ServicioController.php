@@ -18,23 +18,12 @@ class ServicioController extends Controller
         public function create(Request $request){
             try
             {
-                  // // Verificar si el idTipoServicio existe en la base de datos de tipo servicios
-                  $tipoServicioExists = DB::table('tipoServicios')->where('idTipoServicio', $request->idTipoServicio)->exists();
-
-                  if (!$tipoServicioExists) {
-                      
-                      return back()->with('incorrecto', 'El tipo servicio no existe en la base de datos.');
-                  }
-  
-                  // Si el tipo servicio existe, inserta el nuevo servicio
-                  $sql = DB::table('servicios')->insert([
-                      'nombreServicio' => $request->nombreServicio,
-                      'descripcionServicio' => $request->descripcionServicio,
-                      'idTipoServicio' => $request->idTipoServicio,
-
-                      
-                  ]);
-
+                $sql=DB::insert("insert into servicios(idServicio, nombreServicio, descripcionServicio, idTipoServicio)values(NULL,?,?,?) ",[
+                    $request->nombreServicio,
+                    $request->descripcionServicio,
+                    $request->idTipoServicio,
+                ]);
+                
 
             }
             catch (\Throwable )
@@ -44,7 +33,7 @@ class ServicioController extends Controller
             if ($sql==true) {
                 return back()->with("correcto","El servicio ha sido registrado correctamente");
             } else {
-                return back()->with("incorrecto","Eror el servicio no ha sido registrado");
+                return back()->with("incorrecto","Error el servicio no ha sido registrado");
             }
             
         }
@@ -86,7 +75,7 @@ class ServicioController extends Controller
         if ($sql==true) {
             return back()->with("correcto","El servicios ha sido eliminado correctamente");
         } else {
-            return back()->with("incorrecto","Eror el servicio no ha sido eliminado");
+            return back()->with("incorrecto","Error el servicio no ha sido eliminado");
         }
         
         }

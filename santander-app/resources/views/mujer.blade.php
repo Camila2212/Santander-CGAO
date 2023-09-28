@@ -22,14 +22,14 @@
 
     @if (session('incorrecto'))
         <div class="alert alert-danger">{{ session('incorrecto') }}</div>
-    @endif 
+    @endif
 
-     <script>
-      var res=function(){
-        var not=confirm("¿Estas seguro de eliminar esta mujer");
-        return not;
-      }
-    </script> 
+    <script>
+        var res = function() {
+            var not = confirm("¿Estas seguro de eliminar esta mujer");
+            return not;
+        }
+    </script>
 
     <!-- Modal Registar Mujer-->
     <div class="modal fade" id="modalInsertar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -154,9 +154,10 @@
                         <td>{{ $item->ocupacionMujer }}</td>
 
                         <td>
-                            <a href="" class="btn btn-primary btn-sm"  data-bs-toggle="modal" data-bs-target="#modalModificar3{{ $item->idMujer }}">
+                            <a href="" class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                data-bs-target="#modalModificar3{{ $item->idMujer }}">
                                 <i class="fa-solid fa-user-pen"></i></a>
-                                    
+
                             <a href="{{ route('mujer.delete', $item->idMujer) }}" onclick="return res()"
                                 class="btn btn-danger btn-sm"><i class="fa-solid fa-user-minus"></i></a>
                         </td>
@@ -166,103 +167,103 @@
 
 
 
-  <!-- Modal Modificar -->
-  <div class="modal fade" id="modalModificar3{{ $item->idMujer }}" tabindex="-1" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Modificar Mujer</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                    aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form action="{{ route('mujer.update') }}" method="post">
-                    @csrf
+                        <!-- Modal Modificar -->
+                        <div class="modal fade" id="modalModificar3{{ $item->idMujer }}" tabindex="-1"
+                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Modificar Mujer</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action="{{ route('mujer.update') }}" method="post">
+                                            @csrf
 
-                    <!-- ID -->
-                    <div class="form-group">
-                        <input type="hidden" class="form-control" id="idMujer"
-                            name="idMujer" required>
-                    </div>
+                                            <!-- ID -->
+                                            <div class="form-group">
+                                                <input type="hidden" class="form-control" id="idMujer"
+                                                    name="idMujer" value={{ $item->idMujer }} required>
+                                            </div>
 
-                    <!-- Tipo de Documento -->
-                    <div class="form-group">
-                        <label for="tipoDocMujer">Tipo de Documento</label>
-                        <input type="text" class="form-control" id="tipoDocMujer"
-                            name="tipoDocMujer" value={{ $item->tipoDocMujer }} >
-                    </div>
+                                            <!-- Tipo de Documento -->
+                                            <div class="form-group">
+                                                <label for="tipoDocMujer">Tipo de Documento</label>
+                                                <input type="text" class="form-control" id="tipoDocMujer"
+                                                    name="tipoDocMujer" value={{ $item->tipoDocMujer }}>
+                                            </div>
 
-                    <!-- Documento -->
-                    <div class="form-group">
-                        <label for="numeroDocMujer">Documento</label>
-                        <input type="text" class="form-control" id="numeroDocMujer"
-                            name="numeroDocMujer" value={{ $item->numeroDocMujer }}>
-                    </div>
+                                            <!-- Documento -->
+                                            <div class="form-group">
+                                                <label for="numeroDocMujer">Documento</label>
+                                                <input type="text" class="form-control" id="numeroDocMujer"
+                                                    name="numeroDocMujer" value={{ $item->numeroDocMujer }}>
+                                            </div>
 
-                    <!-- Nombres -->
-                    <div class="form-group">
-                        <label for="nombreMujer">Nombre</label>
-                        <input type="text" class="form-control" id="nombreMujer"
-                            name="nombreMujer" value={{ $item->nombreMujer }} required>
-                    </div>
+                                            <!-- Nombres -->
+                                            <div class="form-group">
+                                                <label for="nombreMujer">Nombre</label>
+                                                <input type="text" class="form-control" id="nombreMujer"
+                                                    name="nombreMujer" value={{ $item->nombreMujer }} required>
+                                            </div>
 
-                    <!-- Apellidos -->
-                    <div class="form-group">
-                        <label for="apellidoMujer">Apellido</label>
-                        <input type="text" class="form-control" id="apellidoMujer"
-                            name="apellidoMujer" value={{ $item->apellidoMujer }} required>
-                    </div>
+                                            <!-- Apellidos -->
+                                            <div class="form-group">
+                                                <label for="apellidoMujer">Apellido</label>
+                                                <input type="text" class="form-control" id="apellidoMujer"
+                                                    name="apellidoMujer" value={{ $item->apellidoMujer }} required>
+                                            </div>
 
-                    <!-- Teléfono -->
-                    <div class="form-group">
-                        <label for="telefonoMujer">Teléfono</label>
-                        <input type="text" class="form-control" id="telefonoMujer"
-                            name="telefonoMujer" value={{ $item->telefonoMujer }} required>
-                    </div>
+                                            <!-- Teléfono -->
+                                            <div class="form-group">
+                                                <label for="telefonoMujer">Teléfono</label>
+                                                <input type="text" class="form-control" id="telefonoMujer"
+                                                    name="telefonoMujer" value={{ $item->telefonoMujer }} required>
+                                            </div>
 
-                    <!-- Correo Electrónico -->
-                    <div class="form-group">
-                        <label for="correoMujer">Correo Electrónico</label>
-                        <input type="email" class="form-control" id="correoMujer"
-                            name="correoMujer" value={{ $item->correoMujer }} required>
-                    </div>
+                                            <!-- Correo Electrónico -->
+                                            <div class="form-group">
+                                                <label for="correoMujer">Correo Electrónico</label>
+                                                <input type="email" class="form-control" id="correoMujer"
+                                                    name="correoMujer" value={{ $item->correoMujer }} required>
+                                            </div>
 
-                    <!-- Ciudad -->
-                    <div class="form-group">
-                        <label for="ciudadMujer">Ciudad</label>
-                        <input type="text" class="form-control" id="ciudadMujer"
-                            name="ciudadMujer" value={{ $item->ciudadMujer }} required>
-                    </div>
+                                            <!-- Ciudad -->
+                                            <div class="form-group">
+                                                <label for="ciudadMujer">Ciudad</label>
+                                                <input type="text" class="form-control" id="ciudadMujer"
+                                                    name="ciudadMujer" value={{ $item->ciudadMujer }} required>
+                                            </div>
 
-                    <!-- Dirección -->
-                    <div class="form-group">
-                        <label for="direccionMujer">Dirección</label>
-                        <input type="text" class="form-control" id="direccionMujer"
-                            name="direccionMujer" value={{ $item->direccionMujer }} required>
-                    </div>
+                                            <!-- Dirección -->
+                                            <div class="form-group">
+                                                <label for="direccionMujer">Dirección</label>
+                                                <input type="text" class="form-control" id="direccionMujer"
+                                                    name="direccionMujer" value={{ $item->direccionMujer }} required>
+                                            </div>
 
-                    <!-- Ocupación -->
-                    <div class="form-group">
-                        <label for="ocupacionMujer">Ocupación</label>
-                        <input type="text" class="form-control" id="ocupacionMujer"
-                            name="ocupacionMujer" value={{ $item->ocupacionMujer }} required>
-                    </div>
+                                            <!-- Ocupación -->
+                                            <div class="form-group">
+                                                <label for="ocupacionMujer">Ocupación</label>
+                                                <input type="text" class="form-control" id="ocupacionMujer"
+                                                    name="ocupacionMujer" value={{ $item->ocupacionMujer }} required>
+                                            </div>
 
-                    <!-- Botón de Enviar -->
-                    <button type="submit" class="btn btn-primary">modificar mujer</button>
-                </form>
+                                            <!-- Botón de Enviar -->
+                                            <button type="submit" class="btn btn-primary">modificar mujer</button>
+                                        </form>
 
-            </div>
-        </div>
-    </div>
-</div>
-
-
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
 
-                                            
-                    
+
+
+
+
                     </tr>
                 @endforeach
 
