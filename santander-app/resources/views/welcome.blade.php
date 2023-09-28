@@ -413,6 +413,8 @@
     
     <a href="{{ route('ciudad.index') }}">ciudad</a><br>
     <a href="{{ route('tservicio.index') }}">tipos de servicio</a><br>
+    <a href="{{ route('servicio.index') }}">servicio</a><br>
+
 
 </div>
 

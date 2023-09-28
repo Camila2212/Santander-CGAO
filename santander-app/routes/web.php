@@ -3,6 +3,7 @@
 use App\Http\Controllers\CiudadController;
 use App\Http\Controllers\MujerController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ServicioController;
 use App\Http\Controllers\TServicioController;
 use Illuminate\Support\Facades\Route;
 
@@ -68,6 +69,18 @@ Route::post('modificartipoServicio',[TServicioController::class,'update'])->name
 
 //ruta para eliminar tipo de servicio
 Route::get('deletetipoServicio-{id}', [TServicioController::class, 'delete'])->name('tservicio.delete');
+
+
+//Ruta para acceder a servicios
+Route::get('Servicio',[ServicioController::class,"index"])->name('servicio.index');
+//ruta para ingresar un servicio
+Route::post('ingresarServicio',[ServicioController::class,"create"])->name('servicio.create');
+
+//ruta para modificar servicio
+Route::post('modificarServicio',[ServicioController::class,'update'])->name('servicio.update');
+
+//ruta para eliminar servicio
+Route::get('deleteServicio-{id}', [ServicioController::class, 'delete'])->name('servicio.delete');
 
 
 require __DIR__.'/auth.php';
