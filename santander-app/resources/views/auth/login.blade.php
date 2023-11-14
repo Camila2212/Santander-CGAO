@@ -43,5 +43,7 @@
                 {{ __('Log in') }}
             </x-primary-button>
         </div>
+        <div><img src="{{ asset('img/Captura de pantalla 2023-11-08 105214.png') }}" alt="Descripción de la imagen">
+        </div>
     </form>
 </x-guest-layout>

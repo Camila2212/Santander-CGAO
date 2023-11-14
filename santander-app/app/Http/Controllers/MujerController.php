@@ -42,7 +42,7 @@ class MujerController extends Controller
 
         
     } 
-    
+                   
     public function update(Request $request){
         try
         {
