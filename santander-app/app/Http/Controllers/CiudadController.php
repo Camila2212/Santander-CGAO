@@ -35,8 +35,8 @@ class CiudadController extends Controller
         try
         {
             $sql=DB::update('update ciudades set nombre=? where idCiudad=?',[
-                $request->nombre,
-                $request->id
+                $request->nombre1,
+                $request->idCiudad1
             ]);
             if($sql==0){
                 $sql=1;
@@ -47,12 +47,12 @@ class CiudadController extends Controller
         {
             $sql=0;
         }
-        // if ($sql>0) {
-        //     return back()->with('correcto','La ciudad ha sido modificado');
-        // } else {
-        //     return back()->with('incorrecto','Error la ciudad no ha sido modificado');
-        // }
-        return $request;
+        if ($sql>0) {
+            return back()->with('correcto','La ciudad ha sido modificado');
+        } else {
+            return back()->with('incorrecto','Error la ciudad no ha sido modificado');
+        }
+      
         
     }
     public function delete($id){

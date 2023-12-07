@@ -1,77 +1,32 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="en">
 <link rel="stylesheet" href="css/app.css">
 <link rel="stylesheet" href="css/css/bootstrap.css">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/css/bootstrap.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.108.0">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <script src="js/bootstrap.js"></script>
-    <title>welcome</title>
-
-    <!-- Fonts -->
-    <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-
-
-    <style>
-        .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            user-select: none;
-        }
-
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
-        }
-
-        .b-example-divider {
-            height: 3rem;
-            background-color: rgba(0, 0, 0, .1);
-            border: solid rgba(0, 0, 0, .15);
-            border-width: 1px 0;
-            box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-        }
-
-        .b-example-vr {
-            flex-shrink: 0;
-            width: 1.5rem;
-            height: 100vh;
-        }
-
-        .bi {
-            vertical-align: -.125em;
-            fill: currentColor;
-        }
-
-        .nav-scroller {
-            position: relative;
-            z-index: 2;
-            height: 2.75rem;
-            overflow-y: hidden;
-        }
-
-        .nav-scroller .nav {
-            display: flex;
-            flex-wrap: nowrap;
-            padding-bottom: 1rem;
-            margin-top: -1px;
-            overflow-x: auto;
-            text-align: center;
-            white-space: nowrap;
-            -webkit-overflow-scrolling: touch;
-        }
-    </style>
-
+    <title>Manzanas del Cuidado</title>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 </head>
 
-<body>
+<body class="antialiased display text-center">
 
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="bootstrap" viewBox="0 0 118 94">
+            <title>Bootstrap</title>
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M24.509 0c-6.733 0-11.715 5.893-11.492 12.284.214 6.14-.064 14.092-2.066 20.577C8.943 39.365 5.547 43.485 0 44.014v5.972c5.547.529 8.943 4.649 10.951 11.153 2.002 6.485 2.28 14.437 2.066 20.577C12.794 88.106 17.776 94 24.51 94H93.5c6.733 0 11.714-5.893 11.491-12.284-.214-6.14.064-14.092 2.066-20.577 2.009-6.504 5.396-10.624 10.943-11.153v-5.972c-5.547-.529-8.934-4.649-10.943-11.153-2.002-6.484-2.28-14.437-2.066-20.577C105.214 5.894 100.233 0 93.5 0H24.508zM80 57.863C80 66.663 73.436 72 62.543 72H44a2 2 0 01-2-2V24a2 2 0 012-2h18.437c9.083 0 15.044 4.92 15.044 12.474 0 5.302-4.01 10.049-9.119 10.88v.277C75.317 46.394 80 51.21 80 57.863zM60.521 28.34H49.948v14.934h8.905c6.884 0 10.68-2.772 10.68-7.727 0-4.643-3.264-7.207-9.012-7.207zM49.948 49.2v16.458H60.91c7.167 0 10.964-2.876 10.964-8.281 0-5.406-3.903-8.178-11.425-8.178H49.948z">
+            </path>
+        </symbol>
         <symbol id="bootstrap" viewBox="0 0 118 94">
             <title>Bootstrap</title>
             <path fill-rule="evenodd" clip-rule="evenodd"
@@ -102,100 +57,351 @@
                 d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z" />
         </symbol>
     </svg>
-    <header class="p-2 " style="background: deeppink;">
-        <div class="container">
-            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+    <x-menu />
 
-                <img src="{{ asset('img/Captura de pantalla 2023-11-09 094030.png') }}" width="180px" alt="">
-                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="#" class="nav-link px-2 text-secondary"></a></li>
-                    <li><a href="#" class="nav-link px-2 text-white"></a></li>
-                    <li><a href="#" class="nav-link px-2 text-white"></a></li>
-                    <li><a href="#" class="nav-link px-2 text-white"></a></li>
-                    <li><a href="#" class="nav-link px-2 text-white"></a></li>
-                </ul>
-                <div class="miBus">
-                    <div>
+    <main>
 
-                        <svg xmlns="http://www.w3.org/2000/svg" style="margin-top: 9px; margin-right: 9px;"
-                            width="25" height="25" fill="currentColor" class="bi bi-search-heart"
-                            viewBox="0 0 16 16">
-                            <path d="M6.5 4.482c1.664-1.673 5.825 1.254 0 5.018-5.825-3.764-1.664-6.69 0-5.018Z" />
-                            <path
-                                d="M13 6.5a6.471 6.471 0 0 1-1.258 3.844c.04.03.078.062.115.098l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1.007 1.007 0 0 1-.1-.115h.002A6.5 6.5 0 1 1 13 6.5ZM6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11Z" />
-                        </svg>
+        <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+
+                    <img src="img/Captura de pantalla 2023-11-15 102251.png" class="img-fluid" height="100%"
+                        width="100%" alt="">
+                    <div class="container-fluid">
+                        <div class="carousel-caption text-start">
+                            <h2>Conoce toda la actualidad de las manzanas del cuidado</h2>
+                            <p>Encuentra las ultimas noticias</p>
+                            <p><a class="btn btn-lg miBtn" href="{{ url('actualidad') }}">Más
+                                    información</a></p>
+                        </div>
                     </div>
-                    <div>
-                        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+                </div>
+                <div class="carousel-item">
+                    <img src="img/Captura de pantalla 2023-11-15 113205.png" height="100%" width="100%"
+                        alt="">
+                    <div class="container-fluid">
+                        <div class="carousel-caption">
+                            <h2>Buses del cuidado</h2>
+                            <p>Son la versión móvil de las Manzanas del Cuidado.</p>
+                            <p><a class="btn btn-lg miBtn" href="{{ url('busDelCuidado') }}">Ver
+                                    información</a></p>
+                        </div>
+                    </div>
+                </div>
 
-                            <input type="search" class="form-control form-control-dark text-bg-dark"
-                                placeholder="Search..." aria-label="Search" value="Buscar">
+                <div class="carousel-item">
+                    <img src="img/Captura de pantalla 2023-11-16 0850432.png" height="100%" width="100%"
+                        alt="">
+                    <div class="container-fluid">
+                        <div class="carousel-caption">
+                            <h2 class="bordeLetra1"><span class="resaltarLetra1">Servicios gratuitos</span></h2>
+                            <p><span class="bordeLetra1 resaltarLetra1">Conoce los servicios gratuitos de las Manzanas
+                                    del Cuidado</span></p>
+                            <p><a class="btn btn-lg miBtn" href="#">Ver
+                                    información</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <img src="img/rsl.png" height="100%" width="100%" alt="">
+
+                    <div class="container-fluid">
+                        <div class="carousel-caption text-end">
+                            <h2 class="bordeLetra"><span>Manzanas del
+                                    cuidado</span></h2>
+                            <p><span class="bordeLetra ">Localiza la Manzana del Cuidado más
+                                    cercana a tu ubicación</span>​</p>
+                            <p><a class="btn btn-lg miBtn" href="#">Encuentra tu manzana</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+        <h1 class="miH1"><span>Conoce las Manzanas del Cuidado</span></h1>
+
+
+
+        <div class="container-fluid marketing">
+            <div class="row">
+                <div class="col-lg-4">
+                    <img src="img/qs.jpg" class="bd-placeholder-img rounded-circle imgCircular" width="140"
+                        height="140" alt="">
+                    <h2 class="fw-normal miL">Las Manzanas del Cuidado</h2>
+                    <p class="miP">Ofrecemos atención dedicada en áreas urbanas para mujeres y sus familias.</p>
+                    <p><br><a class="btn " href="#">Ver más &raquo;</a></p>
+                </div><!-- /.col-lg-4 -->
+                <div class="col-lg-4">
+                    <img src="img/dE.jpg" class="bd-placeholder-img rounded-circle imgCircular" width="140"
+                        height="140" alt="">
+
+                    <h2 class="fw-normal miL">Encuentra la más cercana.​</h2>
+                    <p class="miP">Descubre la ubicación más próxima a ti y explora un mundo lleno de aventuras</p>
+                    <p><br><a class="btn btn1" href="#">Ver más &raquo;</a></p>
+                </div><!-- /.col-lg-4 -->
+                <div class="col-lg-4">
+                    <img src="img/sgpt1.png" class="bd-placeholder-img rounded-circle imgCircular" width="140"
+                        height="140" alt="">
+                    <h2 class="fw-normal miL">Servicios gratuitos para ti</h2>
+                    <p class="miP">Ven con tu familia y disfruta fácilmente de nuestros servicios gratuitos.</p>
+                    <p><a class="btn" href="#">Ver más &raquo;</a></p>
+                </div><!-- /.col-lg-4 -->
+            </div>
+        </div>
+
+
+
+        <h1 class="miH2 resaltarLetra "><span>Conoce otros servicios del Sistema Distrital de Cuidado</span></h1>
+        <br>
+        <div class="miDivImg">
+            <div class="contenedorImagen">
+                <img src="img/bus2.png" class="rounded miImg" alt="...">
+            </div>
+
+            <div class="contenedorImagen">
+                <img src="img/casa2.png" class="rounded miImg" alt="...">
+            </div>
+
+            <div class="contenedorImagen">
+                <img src="img/cuidadora2.png" class="rounded miImg" alt="...">
+            </div>
+        </div>
+        <img src="img/MC4.png" alt="" width="500px">
+        <!-- START THE FEATURETTES -->
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+            <div class="col-md-7 miDiv3">
+                <div>
+                    <h3 class="featurette-heading fw-normal lh-1 miH2 resaltarLetra2 miST">
+                        Comó Nace el Sistema Distrital de Cuidado.
+                    </h3>
+                </div>
+                <br>
+                <p class="lead miP2"><b>Bogotá es la primera ciudad de América Latina en tener un Sistema de
+                        Cuidado.</b> La
+                    apuesta por un modelo de corresponsabilidad que le quite la sobrecarga de trabajos de cuidado a las
+                    mujeres ya es una realidad en la ciudad.</p>
+                <p><a class="btn miBtn3 btn-lg" href="#">Leer más</a></p>
+            </div>
+            <div class="col-md-5">
+                <img src="img/SDC.jpg" alt="" width="600px">
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+            <div class="col-md-7 order-md-2 miDiv3">
+                <h3 class="featurette-heading fw-normal lh-1 miH2 resaltarLetra2 miST">
+                    Estrategia Cuidado a Cuidadoras
+                </h3>
+                <br>
+                <p class="lead miP2"> objetivos del Sistema Distrital de Cuidado en el marco del Plan Distrital de
+                    Desarrollo 2020-2024. Se propone una estrategia que revalore el trabajo de cuidado, empoderando a
+                    cuidadores a través de servicios de reposo, recreación, formación y homologación. Se enfatiza la
+                    inclusión de diversas comunidades, como adultas mayores, líderes comunitarias, cuidadoras de
+                    animales, mujeres rurales, personas LBT, indígenas, campesinas, negras, afrocolombianas, raizales,
+                    palenqueras y Rrom.</p>
+                <p><a class="btn miBtn3 btn-lg" href="#">Leer más</a></p>
+            </div>
+            <div class="col-md-5">
+                <img src="img/ISC.png" alt="" style="margin-left: 20px;" width="600px">
+            </div>
+        </div>
+
+
+
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+            <div class="col-md-7 miDiv3">
+                <h3 class="featurette-heading fw-normal lh-1 miH2 resaltarLetra2 miST">A Cuidar se Aprende</h3>
+                <br>
+                <p class="lead miP2">¡Llegó la hora de aprender a cuidar! El cuidado no es un don natural, todas y
+                    todos
+                    debemos hacerlo. En Bogotá sabemos que el primer paso para lograr la igualdad es distribuir
+                    equitativamente los trabajos de cuidado. Por eso en el Sistema de Cuidado creamos una Estrategia
+                    para que todas y todos aprendamos a hacerlo.</p>
+                <p><a class="btn miBtn3 btn-lg" href="#">Leer más</a></p>
+            </div>
+            <div class="col-md-5">
+                <img src="img/Corazon.png" alt="" width="600px">
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <img src="img/CALQNC.jpg" alt="Cuidamos a las que nos cuidan" width="600px" style="margin-bottom: 60px">
+        <br>
+        <br>
+
+        <p class="lead miP2">Encuentra en este mapa las Manzanas del Cuidado activas en Bogotá.
+            <br>
+            ¡Obtén su ubicación y conoce cómo llegar!
+        </p>
+        <br>
+        <div id="miMapa">
+
+            <div id="map">
+                <script>
+                    var map = L.map('map').setView([4.60971, -74.08175], 11); // Establece las coordenadas y el nivel de zoom iniciales
+
+                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                    }).addTo(map);
+
+                    // Agrega ubicaciones fijas
+
+                    var marker1 = L.marker([4.762906, -74.046304]).addTo(map).bindPopup('Centro Comercial Santa fe');
+                    var marker2 = L.marker([4.642966, -74.188761]).addTo(map).bindPopup('Manzana del Cuidado de Bosa-El Porvenir');
+                    var marker3 = L.marker([4.500622, -74.108807]).addTo(map).bindPopup('Manzana del Cuidado de Usme');
+                    var marker4 = L.marker([4.550461, -74.150535]).addTo(map).bindPopup('Manzana del Cuidado de Ciudad Bolivar');
+                    var marker5 = L.marker([4.617617, -74.123995]).addTo(map).bindPopup('Manzana del Cuidado de Puente Aranda');
+                    var marker6 = L.marker([4.681811, -74.141778]).addTo(map).bindPopup('Manzana del Cuidado de Fontibon');
+                    var marker7 = L.marker([4.741158, -74.023722]).addTo(map).bindPopup('Manzana del Cuidado de FUsaquén');
+
+
+                    
+                </script>
+            </div>
+
+
+
+
+
+
+            {{-- 
+            <script>
+                var map = L.map('map').setView([51.505, -0.09], 13);
+        
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                }).addTo(map);
+        
+                // Agrega ubicaciones fijas con popups
+                var marker1 = L.marker([51.5, -0.09]).addTo(map);
+                marker1.bindPopup("<b>Ubicación 1</b><br>Información adicional sobre el lugar.");
+        
+                var marker2 = L.marker([51.51, -0.1]).addTo(map);
+                marker2.bindPopup("<b>Paris</b><br><b>Servicios:</b>Cuidado a niños<br><b>Nombre</b>Manzanitas del cuidado<br>").openPopup();
+            </script> --}}
+
+
+
+
+
+
+        </div>
+        <br>
+        <br>
+        <p class="lead miP2">En las Manzanas del Cuidado encuentra los servicios de:
+        </p>
+
+        <img src="img/Captura de pantalla 2023-11-21 153722.png" width="700px" alt=""
+            style="margin-bottom: 80px;">
+
+            
+        <!-- /END THE FEATURETTES -->
+
+        <div style="background: #fec1e08f; padding-top: 1rem !important;"><br></div>
+        <div style="background: #fec1e08f;">
+            <footer class="miCont" hunjstyle="padding-top: 2rem !important;">
+
+
+
+                <div class="row" style="display: flex;">
+                    <div class="col-6">
+                        <h5 class="col-md-2">Menú</h5>
+                        <ul style="width: 385px; height: 180px; display: flex; flex-direction: column;">
+                            <li class="nav-item mb-2" style="display: block;"><a href="#"
+                                    class="nav-link p-0 text-muted">¿Qué son los trabajos de cuidado?</a></li>
+                            <li class="nav-item mb-2" style="display: block;"><a href="#"
+                                    class="nav-link p-0 text-muted">Encuentra la manzana del cuidado más cercana</a>
+                            </li>
+                            <li class="nav-item mb-2" style="display: block;"><a href="#"
+                                    class="nav-link p-0 text-muted">Buses del Cuidado</a></li>
+                            <li class="nav-item mb-2" style="display: block;"><a href="#"
+                                    class="nav-link p-0 text-muted">Programa de Asistencia en Casa</a></li>
+                            <li class="nav-item mb-2" style="display: block;"><a href="#"
+                                    class="nav-link p-0 text-muted">#ACuidarSeAprende</a></li>
+                            <li class="nav-item mb-2" style="display: block;"><a href="#"
+                                    class="nav-link p-0 text-muted">Estrategia de Cuidado a Cuidadoras</a></li>
+                        </ul>
+                    </div>
+
+
+
+
+
+
+                    <div class="col-md-5 offset-md-1 mb-3">
+                        <form>
+                            <h5>¡Queremos escucharte!</h5>
+                            <p>
+                                En Las Manzanas Del Cuidado, valoramos tu opinión y
+                                estamos abiertos a recibir sugerencias que nos ayuden a mejorar.</p>
+                            <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+                                <label for="newsletter1" class="visually-hidden">Email address</label>
+                                <input id="newsletter1" type="text" class="form-control"
+                                    placeholder="Sugerencias">
+                                <button class="btn btn-primary" type="button">Enviar</button>
+                            </div>
                         </form>
                     </div>
                 </div>
-                <div class="text-end">
-                    @if (Route::has('login'))
-                        <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                            @auth
-                                <a href="{{ url('/dashboard') }}"
-                                    class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
-                            @else
-                                <button type="button" class="btn btn-outline-primary me-2 mibtn2">
-                                    <a href="{{ route('login') }}"
-                                        class="text-sm text-gray-700 dark:text-gray-500 underline mibtn2"
-                                        style="text-decoration: none; color:white">Login</a>
-                                </button>
-                                @if (Route::has('register'))
-                                    <button type="button" class="btn btn-outline-primary me-2 mibtn2 ">
-                                        <a href="{{ route('register') }}"
-                                            class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline mibtn2"
-                                            style="text-decoration: none; color:white">Register</a>
-                                @endif
-                                </button>
-                            @endauth
-                        </div>
-                    @endif
-    </header>
 
-    <body class="antialiased display text-center">
-               
-        <div id="carouselExample" class="carousel slide">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img src="img/Captura de pantalla 2023-11-13 174248.png" class="d-block w-100" height="500px" alt="...">
-              </div>
-              <div class="carousel-item">
-                <img src="img/Captura de pantalla 2023-11-13 174452.png" class="d-block w-100" height="500px" alt="...">
-              </div>
-              <div class="carousel-item">
-                <img src="img/Captura de pantalla 2023-11-13 174846.png" class="d-block w-100" height="500px" alt="...">
-              </div>
-              <div class="carousel-item">
-                <img src="img/Captura de pantalla 2023-11-13 175543.png" class="d-block w-100" height="500px" alt="...">
-              </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
-          </div>
-          <div>
-            <h1 style="color: magenta"> Bienvenida Mujer Cuidadoraaaaa </h1>
-        </div>
-          <div class="display-block menu midiv text-center m-5">
-            <a href="{{ route('mujer.index') }}">mujer</a> <br>
-            <a href="{{ route('ciudad.index') }}">ciudad</a><br>
-            <a href="{{ route('tservicio.index') }}">tipos de servicio</a><br>
-            <a href="{{ route('servicio.index') }}">servicio</a><br>
-            <a href="{{ route('establecimiento.index') }}">establecimiento</a><br>
-            <a href="{{ route('manzana.index') }}">manzana</a><br>
-            <a href="{{ route('propuesta.index') }}">propuesta</a><br>
+                <div class="d-flex flex-column flex-sm-row justify-content-between border-top miFooter">
+                    <p>&copy; 2023 - Alcaldía Mayor de Bogotá - Todos los derechos reservados.</p>
+                    <p class="float-end"><a href="#">Volver al inicio</a></p>
+                    <ul class="list-unstyled d-flex">
+                        <li class="ms-3"><a class="link-dark" href="https://www.tiktok.com/@secredistmujer"><svg
+                                    class="bi" width="24" height="24">
+                                    <use xlink:href="#twitter" />
+                                </svg></a></li>
+                        <li class="ms-3"><a class="link-dark"
+                                href="https://instagram.com/sdmujerbogota?igshid=YzAwZjE1ZTI0Zg=="><svg class="bi"
+                                    width="24" height="24">
+                                    <use xlink:href="#instagram" />
+                                </svg></a></li>
+                        <li class="ms-3"><a class="link-dark" href="https://www.facebook.com/secredistmujer/"><svg
+                                    class="bi" width="24" height="24">
+                                    <use xlink:href="#facebook" />
+                                </svg></a></li>
+                        <li class="ms-3"><a class="link-dark" href="https://www.tiktok.com/@secredistmujer"><svg
+                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                    <path
+                                        d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z" />
+                                </svg></a></li>
+                    </ul>
+                </div>
 
+            </footer>
         </div>
-    </body>
+
+
+    </main>
+
+
+</body>
 
 </html>

@@ -1,3 +1,5 @@
+
+<x-miCom/>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -89,8 +91,8 @@
 
 
         <table class="table table-hover table-striped table-bordered">
-            <thead class="bg-info">
-                <tr>
+            <thead >
+                <tr style="background: #ffc4e2;">
                     <th scope="col">id Manzana</th>
                     <th scope="col">Nombre</th>
                     <th scope="col">id Ciudad</th>
@@ -105,7 +107,7 @@
                         <th scope="row">{{ $item->idManzana }}</th>
                         <td>{{ $item->nombreManzana }}</td>
                         <td>{{ $item->idCiudad }}</td>
-                        <td>{{ $item->direccionManzana }}</td>
+                        <td>{{ $item->localidadManzana }}</td>
                         <td>{{ $item->direccionManzana }}</td>
                         <td>
                             <a href="" class="btn btn-primary btn-sm" data-bs-toggle="modal"

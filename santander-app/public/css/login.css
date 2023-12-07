@@ -1,0 +1,184 @@
+
+        .input-group {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .icon-container {
+            display: flex;
+            align-items: center;
+            margin-right: 10px;
+            /* Espaciado entre el icono y el campo de entrada */
+        }
+
+        .icon-container svg {
+            width: 20px;
+            /* Ajusta el tamaño del icono según tus preferencias */
+            height: 20px;
+            fill: #333;
+            /* Color del icono */
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(to right, #ff8aaf, #fec1e0);
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+
+        .login-container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            width: 320px;
+            max-width: 100%;
+            padding-top: 48px;
+            padding-bottom: 48px;
+        }
+
+        .login-header {
+            color: #fec1e0;
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+            /* Centra el texto */
+        }
+
+
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+
+
+        .login-button {
+            background-color: #fec1e0;
+            color: #fff;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .login-button:hover {
+            background-color: #ff8aaf;
+        }
+
+        .signup-link {
+            margin-top: 20px;
+            color: #333;
+            cursor: pointer;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        .signup-link:hover {
+            color: #fec1e0;
+        }
+
+        .deco-circle {
+            position: absolute;
+            background-color: #ff8aaf;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            top: -80px;
+            right: -80px;
+            opacity: 0.4;
+            animation: moveCircle 8s infinite linear;
+        }
+
+        @keyframes moveCircle {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            25% {
+                transform: translate(150px, 50px);
+            }
+
+            50% {
+                transform: translate(0, 0);
+            }
+
+            75% {
+                transform: translate(-150px, 50px);
+            }
+
+            100% {
+                transform: translate(0, 0);
+            }
+        }
+
+
+
+        label {
+            font-size: 15px;
+            margin-bottom: 5px;
+            color: #333;
+            flex: 1;
+            margin-right: 50px;
+            /* Ocupa el espacio disponible */
+        }
+
+        .input {
+            width: 250px;
+            padding-left: 15px;
+            padding-right: 15px;
+            padding-bottom: 10px;
+            padding-top: 10px;
+            /* Ajusta el padding */
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 15px;
+            /* Ajusta el tamaño de la fuente */
+        }
+
+        hr {
+            opacity: 0.4;
+            /* Ajusta el nivel de transparencia según sea necesario */
+            border: none;
+            height: 1px;
+            background-color: #ddd;
+            /* Puedes ajustar el color según tus preferencias */
+            margin-bottom: 25px;
+
+            /* Ajusta el margen según sea necesario */
+        }
+
+        .input-group {
+            display: flex;
+            align-items: center;
+        }
+
+        .icon-container1 {
+            display: flex;
+            align-items: center;
+            margin-left: -30px;
+            /* Ajusta el espacio entre el ícono y el campo de entrada */
+            opacity: 0.7;
+            /* Opacidad del ícono de ojo */
+            cursor: pointer;
+        }
+
+        .icon-container1 svg {
+            width: 20px;
+            /* Ajusta el tamaño del ícono según tus preferencias */
+            height: 20px;
+            fill: #333;
+            /* Color del ícono */
+        }
+

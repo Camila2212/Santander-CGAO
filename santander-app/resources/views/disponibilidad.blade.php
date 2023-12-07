@@ -1,3 +1,4 @@
+<x-miCom/>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -85,8 +86,8 @@
 
 
         <table class="table table-hover table-striped table-bordered">
-            <thead class="bg-info">
-                <tr>
+            <thead >
+                <tr style="background: #ffc4e2;">
                     <th scope="col">id Propuesta</th>
                     <th scope="col">Fecha Propuesta</th>
                     <th scope="col">id Manzana</th>

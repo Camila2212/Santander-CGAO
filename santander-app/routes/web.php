@@ -4,6 +4,7 @@ use App\Http\Controllers\CiudadController;
 use App\Http\Controllers\DisponibilidadController;
 use App\Http\Controllers\EstablecimientoController;
 use App\Http\Controllers\ManzanaController;
+use App\Http\Controllers\MapController;
 use App\Http\Controllers\MujerController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServicioController;
@@ -25,6 +26,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//Ruta para acceder a la vista de actualidad
+Route::get('actualidad', function () {
+    return view('actualidad');
+});
+
+//Ruta para acceder a los buses del cuidado
+Route::get('busDelCuidado',function(){
+    return view('busDelCuidado');
+});
+
+
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -34,6 +47,9 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+//ruta acceder al mapa
+Route::get('/map', [MapController::class, 'index'])->name('map.index');
 
 
 //Ruta para acceder a la pagina mujer
@@ -126,6 +142,5 @@ Route::post('modificarPropuesta',[DisponibilidadController::class,'update'])->na
 
 //ruta para eliminar una disponibilidad
 Route::get('deletePropuesta-{id}', [DisponibilidadController::class, 'delete'])->name('propuesta.delete');
-
 
 require __DIR__.'/auth.php';

@@ -12,7 +12,10 @@ class ServicioController extends Controller
         //
         
         public function index(){
+            
+
             $datos=DB::select('select * from Servicios');
+           
             return view('servicio')->with('datos',$datos);
         }
         public function create(Request $request){
@@ -41,10 +44,10 @@ class ServicioController extends Controller
             try
             {
                 $sql=DB::update('update servicios set nombreServicio=?,  descripcionServicio=?, idTipoServicio=? where idServicio=?',[
-                    $request->nombreServicio,
-                    $request->descripcionServicio,
-                    $request->idTipoServicio,
-                    $request->idServicio
+                    $request->nombreServicio1,
+                    $request->descripcionServicio1,
+                    $request->idTipoServicio1,
+                    $request->idServicio1
                 ]);
                 if($sql==0){
                     $sql=1;

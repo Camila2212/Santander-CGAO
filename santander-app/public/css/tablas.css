@@ -1,0 +1,97 @@
+.miBody {
+            
+    background: #fff3f9;
+}
+
+.container {
+    margin-top: 50px;
+}
+.miformulario{
+    margin-top: 1rem;
+}
+.miform {
+    background-color: #fdfdfd;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    width: 100%;
+    max-width: 600px;
+}
+form label {
+    font-weight: bold;
+}
+
+form input,
+form button {
+    margin-top: 10px;
+}
+
+form button {
+    width: 100%;
+}
+
+
+.miDiv6 .btn {
+    background: #ffb7db;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    text-decoration: none;
+    transition: background 2s ease;
+  }
+  
+  .miDiv6 .btn:hover {
+    background: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+  }
+  
+  .miDiv6{
+    margin-top: -40px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+.miDiv5 .btn {
+    background: #fec1e09c;
+    color: rgba(0, 0, 0, 0.813);
+    font-weight: bold;  
+    text-decoration: none;
+    transition: background 2s ease;
+  }
+  
+  .miDiv5 .btn:hover {
+    background: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+  }
+  
+  .ha{
+    color: #000;
+    font-style: italic;
+    font-family: Times New Roman;
+    border: 1qpx solid #ffe3f1;
+    
+  }
+  .haa{
+    color: #000;
+    font-style: italic;
+    font-family: Times New Roman;
+    border: 1qpx solid #ffe3f1d7;
+    background: #fcd3e75b;
+  }
+
+  .miLt{
+    font-style: italic;
+    font-family: Times New Roman;
+  }
+
+  hr {
+    opacity: 0.3;
+    /* Ajusta el nivel de transparencia según sea necesario */
+    border: none;
+    height: 1px;
+    background-color: #ddd;
+    /* Puedes ajustar el color según tus preferencias */
+    margin-bottom: 25px;
+
+    /* Ajusta el margen según sea necesario */
+}

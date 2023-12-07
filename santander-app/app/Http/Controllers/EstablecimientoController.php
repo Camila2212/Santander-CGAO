@@ -11,6 +11,7 @@ class EstablecimientoController extends Controller
         
         public function index(){
             $datos=DB::select('select * from establecimientos');
+            // return $datos;
             return view('establecimiento')->with('datos',$datos);
         }
         public function create(Request $request){
@@ -41,13 +42,17 @@ class EstablecimientoController extends Controller
             try
             {
                 $sql=DB::update('update establecimientos set nombreEst=?,  responsableEst=?, direccionEst=?, idservicio=? where idEstablecimiento=?',[
-                    $request->nombreEst,
-                    $request->responsableEst,
-                    $request->direccionEst,
-                    $request->idServicio,
-                    $request->idEstablecimiento,
+                    $request->nombreEst1,
+                    $request->responsableEst1,
+                    $request->direccionEst1,
+                    $request->idServicio1,
+                    $request->idEstablecimiento1,
 
                 ]);
+
+
+
+
                 if($sql==0){
                     $sql=1;
                 }
